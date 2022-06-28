@@ -5,8 +5,6 @@ an object containing the various ships and the length
 
 App State Variables: 
 The amount of ships that are left standing for the player and computer 
-The amount of hits that a ship has taken, which is also its life considering the length is gone 
-The gameboard and whether to update the square to show a hit or not 
 The state of the game whether all of onesides ships has been sunked 
 The state of the players board and the computers board
 Whose turn is it to fire 
@@ -29,6 +27,7 @@ function to take care of grid palcement and whether the grid spaces are within t
 function to go through all five ships
 function to check if rotation should place ships vertically or horizontally 
 function for computer to choose random placement on grid makes sure that 
+function to highLight when placing ships 
 
 
 

@@ -7,12 +7,17 @@ const shipsObj = {
 }
 
 
+let computersBoard
 
+let playersBoard 
 
-const startBtn = document.querySelector('.startGame')
+let x 
 
+let y 
 
-let testBoard 
+let currentTurn 
+
+let rotation 
 
 function makeBoard() { 
     const board = []
@@ -23,7 +28,7 @@ function makeBoard() {
         count++
     }
     
-    testBoard = board
+    playersBoard = board
 
 }
 
@@ -43,17 +48,40 @@ function currentShip() {
     }
 }
 
-function shipPlacementVertical(length) { 
+function shipPlacementHorizontal(length) { 
     let shipLength = length
     let count = 0
-    let locationY = 0
+    let locationX = 0 //X-coordinate from table value
+    let locationY = 0 //Y-coodinate from table value
     while(count<shipLength){
-    if(testBoard[count][locationY])return('spot taken')
+    if(playersBoard[locationX][locationY])return('spot taken')
+    locationY++
     count++
     }
     count = 0
+    locationY = 0
     while(count < shipLength){
-        testBoard[count][locationY] = 'x'
+        playersBoard[locationX][locationY] = 'x'
+        locationY++
+        count++ 
+    }
+}
+
+function shipPlacementVertical(length) { 
+    let shipLength = length
+    let count = 0
+    let locationX = 0
+    let locationY = 0
+    while(count<shipLength){
+        if(playersBoard[locationX][locationY])return('spot taken')
+            locationX++
+            count++
+        }
+    count = 0
+    locationX = 0 
+    while(count < shipLength){
+        playersBoard[locationX][locationY] = 'x'
+        locationX++
         count++ 
     }
 }
@@ -63,11 +91,11 @@ function fire() {
     let y = 0
 
     if(testBoard[y][x]){
-        testBoard[y][x] = 'h'
+        playersBoard[y][x] = 'h'
     }else{
-        testBoard[y][x] = 'm'
+        playersBoard[y][x] = 'm'
     }
 }
 
 makeBoard()
-testBoard[0][0] = 'x'
+playersBoard[0][0] = 'x'
