@@ -1,56 +1,96 @@
 * {
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
-html{
-    overflow: hidden;
-}
+
 body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
     margin: 0;
-    padding: 0;
-}
-
-#opening{
-    position: relative;
-    box-sizing: border-box;
-    min-width: 100vw;
-    min-height: 100vh;
-}
-
-#gameBody{
-    display: none;
-    justify-content: space-evenly;
-    align-items: center;
-    box-sizing: border-box;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    text-align: center;
     height: 100vh;
     width: 100vw;
-    font-size: 3vmin;
-    padding: 10% 30%;
-    animation-name: loadInScreen;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
 }
 
-#gameBody button {
-    width: 35vw;
-    height: 3vh;
+#hey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
 }
 
+#human, #comp, h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+table{
+    border-collapse: collapse;
+    border: 5px solid black;
+}
 
-@keyframes loadInScreen {
-    from{
-        opacity: 0;
-        background-color: white;
+tr{
+    display: flex;
+}
+
+td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vmin;
+    height: 7vmin;
+    border: 1px solid black;
+    margin: 0;
+    color: lightblue;
+}
+
+@media only screen and (max-width: 800px){
+    * {
+        box-sizing: border-box;
     }
-    to{
-        opacity: 1;
-        background-color: blue;
+    
+    
+    body{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #hey {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #human, #comp, h1 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    table{
+        border-collapse: collapse;
+        border: 5px solid black;
+    }
+    
+    tr{
+        display: flex;
+    }
+    
+    td{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 8vmin;
+        height: 8vmin;
+        border: 1px solid black;
+        margin: 0;
+        color: lightblue;
     }
 }
-
-
-

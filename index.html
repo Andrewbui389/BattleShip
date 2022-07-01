@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/cssAnimations.js" defer></script>
-    <script src="./js/main.js" defer></script>
+    <script src="./js/boardAdd.js" defer></script>
+    <script src="./js/testing.js" defer></script>
+    <link href="./css/main.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <video id='opening' src="./Imgs/Earth_Zoom_In.mov" autoplay muted loop></video>
-    <div id="gameBody">
-        <div>
-        <h1>Welcome to Battle Ship Admiral, Ready For Orders!</h1>
+    <h1>Setting up Ships captain</h1>
+    <div id="hey">
+        <div id="human">
+            <h1>Human</h1>
+            <table id="player"></table>
+            <button id="rotate">Rotate</button>
         </div>
-        <div>
-        <button class="startGame">Start Game</button>
+        
+        <div id="comp">
+            <h1>Computer</h1>
+            <table id="computer"></table> 
+            <br>
         </div>
-    </div> 
+    </div>
 </body>
 </html>
