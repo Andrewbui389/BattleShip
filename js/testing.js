@@ -20,7 +20,6 @@ let winner
 
 let it
 
-
 const wavesSound = new Audio('./Sounds/waves.mp3')
 
 const tableELHum = document.querySelector("#player")
@@ -231,12 +230,13 @@ function fire(){
 
 function placeShip() {
     let count = 0
-    
+    let X = randomCoor(count)
+    let Y = randomCoor(count)
     while(count<5){
-        let X = randomCoor(count)
-        let Y = randomCoor(count)
-        computer.b[Y][X] = 'x'
+        computer.b[Y][X] = shipsId[0].s
+        computer.c[`${Y}${X}`] = true
         count++
+        X++
     }
 }
 
