@@ -219,6 +219,7 @@ function checkShips() {
 }
 
 function fire(){
+    if(computer.c[`${y}${x}`] === 'M')return
     if(computer.b[y][x]){
      (computer.c[`${y}${x}`] = 'H')
     }else{
@@ -228,15 +229,28 @@ function fire(){
 }
 
 
-function placeShip() {
+
+
+
+function tester() { 
     let count = 0
-    let X = randomCoor(count)
-    let Y = randomCoor(count)
-    while(count<5){
-        computer.b[Y][X] = shipsId[0].s
+    while(count < 5){
+        placeShip(count)
+        count++
+    }
+}
+
+
+function placeShip(int) {
+    let count = 0
+    let X = randomCoor(int)
+    let Y = randomCoor(int)
+    let randomRotation = Math.floor(Math.random() * 2)
+    while(count<shipsId[int].l){
+        computer.b[Y][X] = shipsId[int].s
         computer.c[`${Y}${X}`] = true
         count++
-        X++
+        randomRotation === 1 ? X++ : Y++
     }
 }
 
