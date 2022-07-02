@@ -62,6 +62,8 @@ rotation = 1
 
 winner = null
 
+tableELComp.style.pointerEvents = 'none'
+
 resetBoard()
 
 }
@@ -168,6 +170,7 @@ function renderMessage(){
 }
 
 function guard(){
+    if(i.shipIdx > 4)return 
     let X = x
     let Y = y
     if(shipsId[it.shipIdx] === undefined)return
@@ -218,22 +221,28 @@ function checkShips() {
 
 function fire(){
     if(computer.b[y][x]){
-    (computer.c[`${y}${x}`] = 'H')
+     (computer.c[`${y}${x}`] = 'H')
+    }else{
+     (computer.c[`${y}${x}`] = 'M')
     }
     console.log('fire')
 }
 
 
 function placeShip() {
-    while(it.i<10){
-        let randomRotate = Math.floor(Math.random(2))
-
+    let count = 0
+    
+    while(count<5){
+        let X = randomCoor(count)
+        let Y = randomCoor(count)
+        computer.b[Y][X] = 'x'
+        count++
     }
 }
 
-function randomCoor() {
+function randomCoor(int) {
     let min = Math.ceil(0)
-    let max = Math.floor(11 - shipsLength[it.i].l)
+    let max = Math.floor(11 - shipsId[int].l)
     let randomNum = Math.floor(Math.random() * (max - min) + min)
     return randomNum
 }
