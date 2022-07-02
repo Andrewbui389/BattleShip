@@ -21,7 +21,7 @@ let winner
 let it
 
 
-
+const wavesSound = new Audio('./Sounds/waves.mp3')
 
 const tableELHum = document.querySelector("#player")
 
@@ -86,8 +86,8 @@ function handleData(evt){
     getCoors(evt.target.textContent)
     if(guard())return true
     it.shipIdx < 5 ? addData() : fire()
-    
     render()
+    it.shipIdx++
 }
 
 function addData() {
@@ -100,9 +100,6 @@ function addData() {
         rotation === 1 ? X++ : Y++
     }
     it.i = 0
-    console.log(shipsId[it.shipIdx].ship)
-    it.shipIdx++
-    console.table(player.b)
 }
 
 function getCoors(int){
@@ -115,6 +112,13 @@ function render(){
     renderHumanBoard()
     renderCompBoard()
     renderMessage()
+    renderSound()
+}
+
+
+function renderSound(){
+    wavesSound.volume = .5
+    wavesSound.play()
 }
 
 function renderHumanBoard(){
@@ -144,20 +148,10 @@ function renderCompBoard(){
 }
 
 function renderMessage(){
-    if(it.shipIdx<4){
-    message.textContent = `Currently Placing ${shipsId[it.shipIdx].ship}`
-    }
+    
 }
 
 function guard(){
-    let X = x
-    let Y = y
-    while(it.i < shipsId[it.shipIdx]){
-        console.table(player.c[`${Y}${X}`])
-        it.i++
-        rotation === 1 ? X++ : Y++
-    }
-    it.i = 0
     
 }
 
@@ -166,9 +160,25 @@ function rotateBtn() {
 }
 
 function checkShips() { 
-
+    
 }
 
 function fire(){
     console.log('fire')
 }
+
+
+
+function randomCoor(iterator){
+    let min = Math.ceil(0)
+    let max = Math.floor(11 - shipsLength[iterator])
+    let randomNum = Math.floor(Math.random() * (max - min) + min)
+    return randomNum
+}
+
+function randomRotation(){
+    let min = Math.ceil(0)
+    let max = Math.floor(2)
+    let randomNum = Math.floor(Math.random() * (max - min) + min)
+    return(randomNum)
+    }
