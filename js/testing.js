@@ -33,13 +33,17 @@ const cellDataComp = [...tableELComp.querySelectorAll('td')]
 
 const message = document.querySelector("h1")
 
+const rotateButton = document.querySelector('button')
+
 tableELHum.addEventListener('click', handleData)
 
 tableELHum.addEventListener('mouseover', highLight)
 
 tableELHum.addEventListener('mouseout', unHighLight)
 
-document.querySelector('#rotate').addEventListener('click', rotateBtn)
+tableELComp.addEventListener('click', handleData)
+
+rotateButton.addEventListener('click', rotateBtn)
 
 init()
 
@@ -91,6 +95,7 @@ function handleData(evt){
     getCoors(evt.target.textContent)
     if(guard())return
     it.shipIdx < 5 ? addData() : fire()
+    it.shipIdx < 4 ? null : mouseActions()
     render()
     it.shipIdx++
 }
@@ -105,6 +110,12 @@ function addData() {
         rotation === 1 ? X++ : Y++
     }
     it.i = 0
+}
+
+function mouseActions(){ 
+        tableELHum.style.pointerEvents = 'none';
+        tableELComp.style.pointerEvents = 'auto';
+        rotateButton.style.visibility = 'hidden'
 }
 
 function getCoors(int){
@@ -206,15 +217,17 @@ function checkShips() {
 }
 
 function fire(){
+    if(computer.b[y][x]){
+    (computer.c[`${y}${x}`] = 'H')
+    }
     console.log('fire')
 }
 
 
 function placeShip() {
-    let coorArr = []
     while(it.i<10){
         let randomRotate = Math.floor(Math.random(2))
-        
+
     }
 }
 
