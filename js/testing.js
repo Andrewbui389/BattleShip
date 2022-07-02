@@ -129,7 +129,7 @@ function renderSound(){
 function renderHumanBoard(){
     for(i of cellDataHum){
         if(player.c[i.textContent]){
-            i.style.backgroundColor = 'blue'
+            i.style.backgroundColor = '#4F5F63'
         }
         if(player.c[i.textContent] === 'H'){
             i.style.backgroundColor = 'red'
@@ -159,6 +159,7 @@ function renderMessage(){
 function guard(){
     let X = x
     let Y = y
+    if(shipsId[it.shipIdx] === undefined)return
     while(it.i < shipsId[it.shipIdx].l){
         if(player.b[Y][X] || player.b[Y][X] === undefined)return true
         rotation === 1 ? X++ : Y++
@@ -170,13 +171,14 @@ function guard(){
 function highLight(evt){
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
+    if(shipsId[it.shipIdx] === undefined)return
     if(guard())return
     if(guard())return
     let X = x
     let Y = y
     while(it.i < shipsId[it.shipIdx].l){
         for(i of cellDataHum){
-            if(i.textContent === `${Y}${X}`){i.style.backgroundColor = 'brown'}
+            if(i.textContent === `${Y}${X}` && i.style.backgroundColor !== '#4F5F63'){i.style.backgroundColor = 'lightgray'}
         }
         rotation === 1 ? X++ : Y++
         it.i++
@@ -189,7 +191,7 @@ function unHighLight(evt){
     getCoors(evt.target.textContent)
     if(guard())return
     for(i of cellDataHum){
-        if(i.style.backgroundColor === 'brown'){
+        if(i.style.backgroundColor === 'lightgray'){
             i.style.backgroundColor = '#5199CC'
         }
     }

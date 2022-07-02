@@ -31,6 +31,7 @@ body{
 table{
     border-collapse: collapse;
     border: 5px solid black;
+    cursor: crosshair;
 }
 
 tr{
@@ -84,6 +85,7 @@ td{
     table{
         border-collapse: collapse;
         border: 5px solid black;
+        cursor: crosshair;
     }
     
     tr{
