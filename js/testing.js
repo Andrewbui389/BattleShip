@@ -210,17 +210,17 @@ function fire(){
 }
 
 
+function placeShip() {
+    let coorArr = []
+    while(it.i<10){
+        let randomRotate = Math.floor(Math.random(2))
+        
+    }
+}
 
-function randomCoor(iterator){
+function randomCoor() {
     let min = Math.ceil(0)
-    let max = Math.floor(11 - shipsLength[iterator])
+    let max = Math.floor(11 - shipsLength[it.i].l)
     let randomNum = Math.floor(Math.random() * (max - min) + min)
     return randomNum
 }
-
-function randomRotation(){
-    let min = Math.ceil(0)
-    let max = Math.floor(2)
-    let randomNum = Math.floor(Math.random() * (max - min) + min)
-    return(randomNum)
-    }
