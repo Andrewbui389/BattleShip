@@ -1,4 +1,10 @@
-const shipsLength = [{l:5, s:'C',sank:false},{l:4, s:'D',sank:false},{l:3, s:'S',sank:false},{l:3, s:'S',sank:false},{l:2, s:'P',sank:false}]
+const shipsId = [
+                {l:5, s:'c',sank:false,ship:'Carrier'},
+                {l:4, s:'d',sank:false,ship:'Battleship'},
+                {l:3, s:'s',sank:false,ship:'Cruiser'},
+                {l:3, s:'b',sank:false,ship:'Submarine'},
+                {l:2, s:'p',sank:false,ship:'Patrol Boat'}
+                ]
 
 let player 
 
@@ -24,6 +30,8 @@ const cellDataHum = [...tableELHum.querySelectorAll('td')]
 const tableELComp = document.querySelector("#computer")
 
 const cellDataComp = [...tableELComp.querySelectorAll('td')]
+
+const message = document.querySelector("h1")
 
 tableELHum.addEventListener('click', handleData)
 
@@ -77,20 +85,22 @@ function handleData(evt){
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
     if(guard())return true
-    addData()
+    it.shipIdx < 5 ? addData() : fire()
+    
     render()
 }
 
 function addData() {
     let X = x 
     let Y = y
-    while(it.i < shipsLength[it.shipIdx].l){
+    while(it.i < shipsId[it.shipIdx].l){
         player.c[`${Y}${X}`] = true
-        player.b[Y][X] = shipsLength[it.shipIdx].s
+        player.b[Y][X] = shipsId[it.shipIdx].s
         it.i++
         rotation === 1 ? X++ : Y++
     }
     it.i = 0
+    console.log(shipsId[it.shipIdx].ship)
     it.shipIdx++
     console.table(player.b)
 }
@@ -103,6 +113,8 @@ function getCoors(int){
 
 function render(){
     renderHumanBoard()
+    renderCompBoard()
+    renderMessage()
 }
 
 function renderHumanBoard(){
@@ -120,13 +132,27 @@ function renderHumanBoard(){
 }
 
 function renderCompBoard(){
+    for(i of cellDataComp){
+        if(computer.c[i.textContent] === 'H'){
+            i.style.backgroundColor = 'red'
+        }
+        if(computer.c[i.textContent] === 'M'){
+            i.style.backgroundColor = 'green'
+        }
+    }
     
+}
+
+function renderMessage(){
+    if(it.shipIdx<4){
+    message.textContent = `Currently Placing ${shipsId[it.shipIdx].ship}`
+    }
 }
 
 function guard(){
     let X = x
     let Y = y
-    while(it.i < shipsLength[it.shipIdx]){
+    while(it.i < shipsId[it.shipIdx]){
         console.table(player.c[`${Y}${X}`])
         it.i++
         rotation === 1 ? X++ : Y++
@@ -139,3 +165,10 @@ function rotateBtn() {
     rotation === 1 ? rotation =  0 : rotation = 1;
 }
 
+function checkShips() { 
+
+}
+
+function fire(){
+    console.log('fire')
+}
