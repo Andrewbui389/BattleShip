@@ -1,4 +1,4 @@
-const shipsLength = [5,4,3,3,2]
+const shipsLength = [{l:5, s:'C',sank:false},{l:4, s:'D',sank:false},{l:3, s:'S',sank:false},{l:3, s:'S',sank:false},{l:2, s:'P',sank:false}]
 
 let player 
 
@@ -13,6 +13,7 @@ let rotation
 let winner 
 
 let it
+
 
 
 
@@ -75,7 +76,7 @@ function makeDataBoard(){
 function handleData(evt){
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
-    guard()
+    if(guard())return true
     addData()
     render()
 }
@@ -83,13 +84,15 @@ function handleData(evt){
 function addData() {
     let X = x 
     let Y = y
-    while(it.i < shipsLength[it.shipIdx]){
+    while(it.i < shipsLength[it.shipIdx].l){
         player.c[`${Y}${X}`] = true
-        player.b[Y][X] = 'x'
+        player.b[Y][X] = shipsLength[it.shipIdx].s
         it.i++
         rotation === 1 ? X++ : Y++
     }
     it.i = 0
+    it.shipIdx++
+    console.table(player.b)
 }
 
 function getCoors(int){
@@ -123,10 +126,8 @@ function renderCompBoard(){
 function guard(){
     let X = x
     let Y = y
-    if(rotation === 1){if(X + shipsLength[it.shipIdx]>10)return true}
-    else if(Y + shipsLength[it.shipIdx]>10)return true
     while(it.i < shipsLength[it.shipIdx]){
-        console.log(player.c[`${Y}${X}`])
+        console.table(player.c[`${Y}${X}`])
         it.i++
         rotation === 1 ? X++ : Y++
     }
