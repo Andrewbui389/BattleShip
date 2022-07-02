@@ -48,6 +48,10 @@ td{
     color: lightblue;
 }
 
+#highlight{
+    background-color: lightgray;
+}
+
 @media only screen and (max-width: 800px){
     * {
         box-sizing: border-box;

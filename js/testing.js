@@ -35,6 +35,10 @@ const message = document.querySelector("h1")
 
 tableELHum.addEventListener('click', handleData)
 
+tableELHum.addEventListener('mouseover', highLight)
+
+tableELHum.addEventListener('mouseout', unHighLight)
+
 document.querySelector('#rotate').addEventListener('click', rotateBtn)
 
 init()
@@ -83,8 +87,9 @@ function makeDataBoard(){
 
 function handleData(evt){
     if(evt.target.tagName !== 'TD')return
+    it.i = 0
     getCoors(evt.target.textContent)
-    if(guard())return true
+    if(guard())return
     it.shipIdx < 5 ? addData() : fire()
     render()
     it.shipIdx++
@@ -152,7 +157,42 @@ function renderMessage(){
 }
 
 function guard(){
-    
+    let X = x
+    let Y = y
+    while(it.i < shipsId[it.shipIdx].l){
+        if(player.b[Y][X] || player.b[Y][X] === undefined)return true
+        rotation === 1 ? X++ : Y++
+        it.i++  
+    }
+    it.i = 0
+}
+
+function highLight(evt){
+    if(evt.target.tagName !== 'TD')return
+    getCoors(evt.target.textContent)
+    if(guard())return
+    if(guard())return
+    let X = x
+    let Y = y
+    while(it.i < shipsId[it.shipIdx].l){
+        for(i of cellDataHum){
+            if(i.textContent === `${Y}${X}`){i.style.backgroundColor = 'brown'}
+        }
+        rotation === 1 ? X++ : Y++
+        it.i++
+    }
+    it.i = 0
+}
+
+function unHighLight(evt){
+    if(evt.target.tagName !== 'TD')return
+    getCoors(evt.target.textContent)
+    if(guard())return
+    for(i of cellDataHum){
+        if(i.style.backgroundColor === 'brown'){
+            i.style.backgroundColor = '#5199CC'
+        }
+    }
 }
 
 function rotateBtn() {
