@@ -22,6 +22,8 @@ let it
 
 const wavesSound = new Audio('./Sounds/waves.mp3')
 
+const cannonFire = new Audio('./Sounds/cannonEffect.mp3')
+
 const tableELHum = document.querySelector("#player")
 
 const cellDataHum = [...tableELHum.querySelectorAll('td')]
@@ -63,6 +65,8 @@ winner = null
 
 tableELComp.style.pointerEvents = 'none'
 
+CompPlace()
+
 resetBoard()
 
 }
@@ -92,7 +96,6 @@ function makeDataBoard(){
 
 function handleData(evt){
     if(evt.target.tagName !== 'TD')return
-    it.i = 0
     getCoors(evt.target.textContent)
     if(guard())return
     it.shipIdx < 5 ? addData() : fire()
@@ -136,6 +139,12 @@ function render(){
 function renderSound(){
     wavesSound.volume = .5
     wavesSound.play()
+    if(it.shipIdx>4){
+        cannonFire.duration = 1
+        cannonFire.play()
+    }
+    
+    
 }
 
 function renderHumanBoard(){
@@ -169,6 +178,7 @@ function renderMessage(){
 }
 
 function guard(){
+    console.log(it.i)
     if(i.shipIdx > 4)return 
     let X = x
     let Y = y
@@ -182,10 +192,10 @@ function guard(){
 }
 
 function highLight(evt){
+    it.i = 0
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
     if(shipsId[it.shipIdx] === undefined)return
-    if(guard())return
     if(guard())return
     let X = x
     let Y = y
@@ -230,18 +240,19 @@ function fire(){
 
 
 
+//Computer Functions 
 
 
-function tester() { 
+function CompPlace() { 
     let count = 0
     while(count < 5){
-        placeShip(count)
+        randomLocation(count)
         count++
     }
 }
 
 
-function placeShip(int) {
+function randomLocation(int) {
     let count = 0
     let X = randomCoor(int)
     let Y = randomCoor(int)
@@ -259,4 +270,23 @@ function randomCoor(int) {
     let max = Math.floor(11 - shipsId[int].l)
     let randomNum = Math.floor(Math.random() * (max - min) + min)
     return randomNum
+}
+
+function compFire() {
+    let min = Math.ceil(0)
+    let max = Math.floor(Math.random() * 10)
+}
+
+
+function Compguard(){
+    if(i.shipIdx > 4)return 
+    let X = x
+    let Y = y
+    if(shipsId[it.shipIdx] === undefined)return
+    while(it.i < shipsId[it.shipIdx].l){
+        if(player.b[Y][X] || player.b[Y][X] === undefined)return true
+        rotation === 1 ? X++ : Y++
+        it.i++  
+    }
+    it.i = 0
 }
