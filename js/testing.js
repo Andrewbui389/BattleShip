@@ -1,9 +1,9 @@
 const shipsId = [
-                {l:5, s:'c',sank:false,ship:'Carrier'},
-                {l:4, s:'d',sank:false,ship:'Battleship'},
-                {l:3, s:'s',sank:false,ship:'Cruiser'},
-                {l:3, s:'b',sank:false,ship:'Submarine'},
-                {l:2, s:'p',sank:false,ship:'Patrol Boat'}
+                {l:5, s:'c',sank:false,ship:'Carrier',msgRead:false},
+                {l:4, s:'d',sank:false,ship:'Battleship',msgRead:false},
+                {l:3, s:'s',sank:false,ship:'Cruiser',msgRead:false},
+                {l:3, s:'b',sank:false,ship:'Submarine',msgRead:false},
+                {l:2, s:'p',sank:false,ship:'Patrol Boat',msgRead:false}
                 ]
 
 let player 
@@ -36,6 +36,7 @@ const message = document.querySelector("h1")
 
 const rotateButton = document.querySelector('button')
 
+
 tableELHum.addEventListener('click', handleData)
 
 tableELHum.addEventListener('mouseover', highLight)
@@ -45,6 +46,7 @@ tableELHum.addEventListener('mouseout', unHighLight)
 tableELComp.addEventListener('click', handleData)
 
 rotateButton.addEventListener('click', rotateBtn)
+
 
 init()
 
@@ -56,14 +58,23 @@ computer = makeDataBoard()
 
 it = {
         i: 0, 
-        shipIdx:0
+        shipIdx:0,
+        shipMsg: 0
         }
+
+x = null 
+
+y = null
 
 rotation = 1 
 
 winner = null
 
+tableELHum.style.pointerEvents = 'auto'
+
 tableELComp.style.pointerEvents = 'none'
+
+renderMessage()
 
 CompPlace()
 
@@ -177,10 +188,16 @@ function renderCompBoard(){
 }
 
 function renderMessage(){
-    if(computer.c[`${y}${x}`] === 'H'){
-        message.textContent = 'Hit'
-    } else if(computer.c[`${y}${x}`] !== 'H'){
-        message.textContent = 'Miss'
+    if(it.shipIdx < 4){
+        message.textContent = `Admiral Please Place ${shipsId[it.shipMsg].ship}`
+        it.shipMsg++
+    } 
+    if(it.shipIdx > 4){
+        if(computer.c[`${y}${x}`] === 'H'){
+            message.textContent = 'Hit'
+        } else if(computer.c[`${y}${x}`] !== 'H'){
+            message.textContent = 'Miss'
+        }
     }
 }
 
