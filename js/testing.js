@@ -253,15 +253,18 @@ function checkShips() {
 };
 
 function fire(){
+    while(compfire()){
+        console.log('testing')
+    }
+
     if(computer.c[`${y}${x}`] === 'M')return;
     if(computer.b[y][x]){
      computer.c[`${y}${x}`] = 'H';
      computer.b[y][x] = 'H';
-     return true;
+     return
     }else{
      (computer.c[`${y}${x}`] = 'M');
     };
-    console.log('fire');
 };
 
 
@@ -315,8 +318,21 @@ function randomCoor(int) {
 };
 
 function randomFireCoor() {
-    let min = Math.ceil(0);
-    let max = Math.floor(Math.random() * 10);
+    let num = Math.floor(Math.random() * 10);
+    return num
 };
 
+function compfire(){
+    let X = randomFireCoor()
+    let Y = randomFireCoor()
+    if(player.c[`${Y}${X}`] === 'M')return true;
+    if(player.b[Y][X]){
+     player.c[`${Y}${X}`] = 'H';
+     player.b[Y][X] = 'H';
+     return true;
+    }else{
+     (player.c[`${Y}${X}`] = 'M')
+    };
 
+    return false
+};
