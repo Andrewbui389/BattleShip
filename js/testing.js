@@ -191,6 +191,9 @@ function guard(){
     it.i = 0
 }
 
+
+//Functions for Highlighting and Unhighlighting ships
+
 function highLight(evt){
     it.i = 0
     if(evt.target.tagName !== 'TD')return
@@ -279,14 +282,5 @@ function compFire() {
 
 
 function Compguard(){
-    if(i.shipIdx > 4)return 
-    let X = x
-    let Y = y
-    if(shipsId[it.shipIdx] === undefined)return
-    while(it.i < shipsId[it.shipIdx].l){
-        if(player.b[Y][X] || player.b[Y][X] === undefined)return true
-        rotation === 1 ? X++ : Y++
-        it.i++  
-    }
-    it.i = 0
+
 }
