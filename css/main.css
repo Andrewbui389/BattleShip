@@ -15,10 +15,15 @@ body{
     color: white
 }
 
-#hey {
+#gameBody {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+}
+
+#rotate{
+   position: absolute;
+   margin-top: 100px;
 }
 
 #human, #comp, h1 {
@@ -68,7 +73,7 @@ td{
         width: 100vw;
     }
 
-    #hey {
+    #gameBody {
         display: flex;
         flex-direction: column;
         justify-content: center;

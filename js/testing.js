@@ -107,8 +107,10 @@ function makeDataBoard(){
 };
 
 function handleData(evt){
+    if(winner !== null)return
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
+    humTrack()
     it.i = 0;
     if(guard())return;
     else{
@@ -152,7 +154,7 @@ function render(){
 
 
 function renderSound(){
-    wavesSound.volume = .3;
+    wavesSound.volume = 0;
     wavesSound.play();
     if(it.shipIdx>4){
         cannonFire.duration = 1;
@@ -197,6 +199,9 @@ function renderMessage(){
             message.textContent = 'Miss';
         };
     };
+    if(winner === 'Computer Won'){
+        message.textContent = 'Admiral you have ben Defeated'
+    }
 };
 
 function guard(){
@@ -248,10 +253,6 @@ function rotateBtn() {
     rotation === 1 ? rotation =  0 : rotation = 1;
 };
 
-function checkShips() { 
-    
-};
-
 function fire(){
     while(compfire()){
         console.log('testing')
@@ -266,7 +267,6 @@ function fire(){
      (computer.c[`${y}${x}`] = 'M');
     };
 };
-
 
 
 //Computer Functions 
@@ -318,17 +318,36 @@ function randomFireCoor() {
     return num
 };
 
-function compfire(){
+function compfire() {
     let X = randomFireCoor();
     let Y = randomFireCoor();
-    if(player.c[`${Y}${X}`] === 'M')return true;
-    if(player.b[Y][X]){
-     player.c[`${Y}${X}`] = 'H';
-     player.b[Y][X] = 'H';
-     return true;
-    }else{
-        (player.c[`${Y}${X}`] = 'M');
-    };
-
-    return false;
+    if(player.c[`${Y}${X}`] === 'M')return true
+    if(player.c[`${Y}${X}`] === true){
+        player.c[`${Y}${X}`] = 'H'
+        player.b[Y][X]= 'H'
+        return false
+    }else if(player.c[`${Y}${X}`] === undefined){
+        player.c[`${Y}${X}`] = 'M'
+        player.b[Y][X]= 'M'
+        return false
+    }
+    return true
 };
+
+
+function humTrack() {
+    let score = 17
+    for(i in player.c){
+       if(player.c[i] === 'H'){
+        score--
+       }
+    }
+    if(score === 0){
+        winner = 'Computer Won'
+        return
+    }
+}
+
+function compTrack() {
+
+}
