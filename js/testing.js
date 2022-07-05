@@ -152,7 +152,7 @@ function render(){
 
 
 function renderSound(){
-    wavesSound.volume = .5;
+    wavesSound.volume = .3;
     wavesSound.play();
     if(it.shipIdx>4){
         cannonFire.duration = 1;
@@ -255,7 +255,8 @@ function checkShips() {
 function fire(){
     if(computer.c[`${y}${x}`] === 'M')return;
     if(computer.b[y][x]){
-     (computer.c[`${y}${x}`] = 'H');
+     computer.c[`${y}${x}`] = 'H';
+     computer.b[y][x] = 'H';
      return true;
     }else{
      (computer.c[`${y}${x}`] = 'M');
@@ -268,19 +269,36 @@ function fire(){
 //Computer Functions 
 
 
+
+
 function CompPlace() { 
     let count = 0;
     while(count < 5){
-        randomLocation(count);
-        count++;
+        if(randomLocation(count)){console.log('true')}
+        else{
+            count++;
+        };
+        
     };
 };
 
 function randomLocation(int) {
     let count = 0;
-    let X = randomCoor(int);
-    let Y = randomCoor(int);
+    let x = randomCoor(int);
+    let y = randomCoor(int);
+    let X = x;
+    let Y = y;
     let randomRotation = Math.floor(Math.random() * 2);
+    while(count<shipsId[int].l){
+        if(computer.b[Y][X])return true
+        count++;
+        randomRotation === 1 ? X++ : Y++;
+    };
+
+    X = x
+    Y = y
+    count = 0
+
     while(count<shipsId[int].l){
         computer.b[Y][X] = shipsId[int].s;
         computer.c[`${Y}${X}`] = true;
