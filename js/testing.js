@@ -97,11 +97,14 @@ function makeDataBoard(){
 function handleData(evt){
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
+    it.i = 0
     if(guard())return
+    else{
     it.shipIdx < 5 ? addData() : fire()
     it.shipIdx < 4 ? null : mouseActions()
     render()
     it.shipIdx++
+    }
 }
 
 function addData() {
@@ -182,6 +185,7 @@ function guard(){
     let X = x
     let Y = y
     if(shipsId[it.shipIdx] === undefined)return
+    if(Y > 9 || X > 9)return true
     while(it.i < shipsId[it.shipIdx].l){
         if(player.b[Y][X] || player.b[Y][X] === undefined)return true
         rotation === 1 ? X++ : Y++
