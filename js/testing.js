@@ -178,7 +178,6 @@ function renderMessage(){
 }
 
 function guard(){
-    console.log(it.i)
     if(i.shipIdx > 4)return 
     let X = x
     let Y = y
@@ -198,7 +197,6 @@ function highLight(evt){
     it.i = 0
     if(evt.target.tagName !== 'TD')return
     getCoors(evt.target.textContent)
-    if(shipsId[it.shipIdx] === undefined)return
     if(guard())return
     let X = x
     let Y = y
