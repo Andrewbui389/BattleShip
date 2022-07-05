@@ -270,10 +270,6 @@ function fire(){
 
 
 //Computer Functions 
-
-
-
-
 function CompPlace() { 
     let count = 0;
     while(count < 5){
@@ -323,16 +319,16 @@ function randomFireCoor() {
 };
 
 function compfire(){
-    let X = randomFireCoor()
-    let Y = randomFireCoor()
+    let X = randomFireCoor();
+    let Y = randomFireCoor();
     if(player.c[`${Y}${X}`] === 'M')return true;
     if(player.b[Y][X]){
      player.c[`${Y}${X}`] = 'H';
      player.b[Y][X] = 'H';
      return true;
     }else{
-     (player.c[`${Y}${X}`] = 'M')
+        (player.c[`${Y}${X}`] = 'M');
     };
 
-    return false
+    return false;
 };
