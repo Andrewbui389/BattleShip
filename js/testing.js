@@ -177,7 +177,11 @@ function renderCompBoard(){
 }
 
 function renderMessage(){
-    
+    if(computer.c[`${y}${x}`] === 'H'){
+        message.textContent = 'Hit'
+    } else if(computer.c[`${y}${x}`] !== 'H'){
+        message.textContent = 'Miss'
+    }
 }
 
 function guard(){
@@ -185,8 +189,8 @@ function guard(){
     let X = x
     let Y = y
     if(shipsId[it.shipIdx] === undefined)return
-    if(Y > 9 || X > 9)return true
     while(it.i < shipsId[it.shipIdx].l){
+        if(Y > 9)return true
         if(player.b[Y][X] || player.b[Y][X] === undefined)return true
         rotation === 1 ? X++ : Y++
         it.i++  
@@ -237,6 +241,7 @@ function fire(){
     if(computer.c[`${y}${x}`] === 'M')return
     if(computer.b[y][x]){
      (computer.c[`${y}${x}`] = 'H')
+     return true
     }else{
      (computer.c[`${y}${x}`] = 'M')
     }
