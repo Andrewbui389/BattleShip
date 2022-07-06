@@ -49,6 +49,26 @@ h1 {
     text-align: center;
 }
 
+#sounds {
+    position: fixed;
+    height: 3vmin;
+    width: 3vmin;
+    background-image: url('../Img/soundIcon.png');
+    background-color: #747e85;
+    background-size: cover;
+    border-style: none;
+}
+
+#sounds:hover {
+    position: fixed;
+    height: 3vmin;
+    width: 3vmin;
+    background-image: url('../Img/soundIcon.png');
+    background-color: #6c879a;
+    background-size: cover;
+    border-style: none;
+}
+
 table{
     border-collapse: collapse;
     border: 5px solid black;
@@ -124,6 +144,26 @@ td{
 
     h1 {
         text-align: center;
+    }
+
+    #sounds {
+        position: fixed;
+        height: 10vmin;
+        width: 10vmin;
+        background-image: url('../Img/soundIcon.png');
+        background-color: #747e85;
+        background-size: cover;
+        border-style: none;
+    }
+    
+    #sounds:hover {
+        position: fixed;
+        height: 10vmin;
+        width: 10vmin;
+        background-image: url('../Img/soundIcon.png');
+        background-color: #6c879a;
+        background-size: cover;
+        border-style: none;
     }
     
     table{

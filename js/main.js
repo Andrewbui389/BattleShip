@@ -18,12 +18,13 @@ let x
 
 let y
 
+let sound 
+
 let rotation
 
 let winner;
 
 let it;
-
 
 const tableELHum = document.querySelector("#player");
 
@@ -52,6 +53,8 @@ rotateButton.addEventListener('click', rotateBtn);
 
 resetGameBtn.addEventListener('click', init)
 
+document.querySelector('#sounds').addEventListener('click', soundBtn)
+
 
 init()
 
@@ -74,6 +77,8 @@ y = null;
 rotation = 1; 
 
 winner = null;
+
+sound = 1
 
 tableELHum.style.pointerEvents = 'auto';
 
@@ -163,8 +168,15 @@ function render(){
 
 
 function renderSound(){
-    wavesSound.volume = 1;
-    cannonFire.volume = .2;
+    if(sound === 1){
+        wavesSound.volume = 1;
+        cannonFire.volume = .2;
+    }
+    if(sound === 0){
+        wavesSound.volume = 0;
+        cannonFire.volume = 0;
+    }
+    
     cannonFire.duration = .1;
     wavesSound.play();
     if(it.shipIdx>4){
@@ -254,6 +266,11 @@ function fire(){
     }else{
         (computer.c[`${y}${x}`] = 'M');
     };
+};
+
+function soundBtn() {
+    sound === 1 ? sound = 0 : sound = 1;
+    renderSound()
 };
 
 
