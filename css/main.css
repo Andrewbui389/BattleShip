@@ -23,8 +23,15 @@ body{
 
 #rotate{
    position: absolute;
-   margin-top: 100px;
+   margin-top: 75vh;
 }
+
+#rotate:hover{
+    position: absolute;
+    margin-top: 75vh;
+    background-color: pink;
+    color: white;
+ }
 
 #human, #comp, h1 {
     display: flex;

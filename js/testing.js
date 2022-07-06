@@ -200,7 +200,7 @@ function renderMessage(){
         };
     };
     if(winner === 'Computer Won'){
-        message.textContent = 'Admiral you have ben Defeated'
+        message.textContent = 'Admiral you have been Defeated'
     }
 };
 
@@ -254,6 +254,8 @@ function rotateBtn() {
 };
 
 function fire(){
+    if(computer.c[`${y}${x}`] === 'H' || computer.c[`${y}${x}`] === 'M')return
+
     while(compfire()){
         console.log('testing')
     }
