@@ -255,7 +255,7 @@ function fire(){
     if(computer.c[`${y}${x}`] === 'H' || computer.c[`${y}${x}`] === 'M')return
 
     while(compfire()){
-        console.log('testing');
+        continue;
     }
 
     if(computer.c[`${y}${x}`] === 'M')return;
@@ -309,7 +309,7 @@ function unHighLight(evt){
 function compPlace() { 
     let count = 0;
     while(count < 5){
-        if(randomLocation(count)){console.log('true')}
+        if(randomLocation(count))continue
         else{
             count++;
         };
