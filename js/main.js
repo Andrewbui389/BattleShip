@@ -360,6 +360,7 @@ function humTrack() {
        }
     }
     if(score === 0){
+        resetGameBtn.style.visibility = 'visible';
         winner = 'Computer Won'
         return
     }
@@ -373,6 +374,7 @@ function compTrack() {
        }
     }
     if(score === 0){
+        resetGameBtn.style.visibility = 'visible';
         winner = 'Human Won'
         return
     }
