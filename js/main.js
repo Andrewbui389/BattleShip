@@ -85,7 +85,7 @@ rotateButton.style.visibility = 'visible';
 
 renderMessage();
 
-CompPlace();
+compPlace();
 
 resetBoard();
 
@@ -189,10 +189,10 @@ function renderHumanBoard(){
 
 function renderCompBoard(){
     for(i of cellDataComp){
-        if(computer.c[i.textContent] === 'H'){
+        if(computer.c[i.textContent] === 'H') {
             i.style.backgroundColor = 'red';
         };
-        if(computer.c[i.textContent] === 'M'){
+        if(computer.c[i.textContent] === 'M') {
             i.style.backgroundColor = 'green';
         };
     };
@@ -204,15 +204,15 @@ function renderMessage(){
         it.shipMsg++;
     };
     if(it.shipIdx > 4){
-        if(computer.c[`${y}${x}`] === 'H'){
+        if(computer.c[`${y}${x}`] === 'H') {
             message.textContent = 'Hit';
-        } else if(computer.c[`${y}${x}`] !== 'H'){
+        } else if(computer.c[`${y}${x}`] !== 'H') {
             message.textContent = 'Miss';
         };
     };
     if(it.shipIdx === 4){
-        message.textContent = `God Speed Admiral`
-    }
+        message.textContent = `God Speed Admiral`;
+    };
     if(winner === 'Computer Won'){
         message.textContent = 'Admiral you have been Defeated';
     };
@@ -279,17 +279,17 @@ function fire(){
 
     if(computer.c[`${y}${x}`] === 'M')return;
     if(computer.b[y][x]){
-     computer.c[`${y}${x}`] = 'H';
-     computer.b[y][x] = 'H';
-     return;
+        computer.c[`${y}${x}`] = 'H';
+        computer.b[y][x] = 'H';
+        return;
     }else{
-     (computer.c[`${y}${x}`] = 'M');
+        (computer.c[`${y}${x}`] = 'M');
     };
 };
 
 
 //Computer Functions 
-function CompPlace() { 
+function compPlace() { 
     let count = 0;
     while(count < 5){
         if(randomLocation(count)){console.log('true')}
@@ -340,44 +340,44 @@ function randomFireCoor() {
 function compfire() {
     let X = randomFireCoor();
     let Y = randomFireCoor();
-    if(player.c[`${Y}${X}`] === 'M')return true
+    if(player.c[`${Y}${X}`] === 'M')return true;
     if(player.c[`${Y}${X}`] === true){
-        player.c[`${Y}${X}`] = 'H'
-        player.b[Y][X]= 'H'
-        return false
+        player.c[`${Y}${X}`] = 'H';
+        player.b[Y][X]= 'H';
+        return false;
     }else if(player.c[`${Y}${X}`] === undefined){
-        player.c[`${Y}${X}`] = 'M'
-        player.b[Y][X]= 'M'
-        return false
-    }
-    return true
+        player.c[`${Y}${X}`] = 'M';
+        player.b[Y][X]= 'M';
+        return false;
+    };
+    return true;
 };
 
 
 function humTrack() {
-    let score = 17
+    let score = 17;
     for(i in player.c){
        if(player.c[i] === 'H'){
-        --score
-       }
-    }
+        --score;
+       };
+    };
     if(score === 0){
         resetGameBtn.style.visibility = 'visible';
-        winner = 'Computer Won'
-        return
-    }
-}
+        winner = 'Computer Won';
+        return;
+    };
+};
 
 function compTrack() {
-    let score = 17
+    let score = 17;
     for(i in computer.c){
        if(computer.c[i] === 'H'){
-        --score
-       }
-    }
+        --score;
+       };
+    };
     if(score === 0){
         resetGameBtn.style.visibility = 'visible';
-        winner = 'Human Won'
-        return
-    }
-}
+        winner = 'Human Won';
+        return;
+    };
+};
