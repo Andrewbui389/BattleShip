@@ -79,7 +79,7 @@ tableELHum.style.pointerEvents = 'auto';
 
 tableELComp.style.pointerEvents = 'none';
 
-// resetGameBtn.style.visibility = 'hidden';
+resetGameBtn.style.visibility = 'hidden';
 
 rotateButton.style.visibility = 'visible';
 
