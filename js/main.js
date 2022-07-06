@@ -164,7 +164,8 @@ function render(){
 
 function renderSound(){
     wavesSound.volume = 1;
-    cannonFire.volume = .6;
+    cannonFire.volume = .2;
+    cannonFire.duration = .1;
     wavesSound.play();
     if(it.shipIdx>4){
         cannonFire.duration = .1;
