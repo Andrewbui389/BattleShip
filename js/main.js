@@ -163,7 +163,7 @@ function render(){
 
 
 function renderSound(){
-    wavesSound.volume = .4;
+    wavesSound.volume = 1;
     wavesSound.play();
     if(it.shipIdx>4){
         cannonFire.duration = .1;
