@@ -7,7 +7,7 @@
 body{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: .5fr .5fr 4fr;
     margin: 0;
     height: 100vh;
     width: 100vw;
@@ -24,6 +24,8 @@ body{
 #rotate{
    position: absolute;
    margin-top: 75vh;
+   height: 4vmin;
+   width: 10vmin;
 }
 
 #rotate:hover{
@@ -31,13 +33,20 @@ body{
     margin-top: 75vh;
     background-color: pink;
     color: white;
+    height:4vmin;
+    width: 10vmin;
  }
 
-#human, #comp, h1 {
+
+#human, #comp, #resetBody {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+h1 {
+    text-align: center;
 }
 
 table{
@@ -74,10 +83,12 @@ td{
     body{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: .5fr .5fr 4fr;
         margin: 0;
         height: 100vh;
         width: 100vw;
+        background-color: #122D40;
+        color: white
     }
 
     #gameBody {
@@ -86,12 +97,33 @@ td{
         justify-content: center;
         align-items: center;
     }
+
+    #rotate{
+        position: relative;
+        margin-top: 0;
+        height: 5vmin;
+        width: 30vmin;
+     }
+     
+     #rotate:hover{
+         position: fixed;
+         margin-top: 0;
+         background-color: pink;
+         color: white;
+         height:5vmin;
+         width: 30vmin;
+      }
     
-    #human, #comp, h1 {
+    
+     #human, #comp, #resetBody {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+
+    h1 {
+        text-align: center;
     }
     
     table{

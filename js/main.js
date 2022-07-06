@@ -35,7 +35,9 @@ const cellDataComp = [...tableELComp.querySelectorAll('td')];
 
 const message = document.querySelector("h1");
 
-const rotateButton = document.querySelector('button');
+const rotateButton = document.querySelector('#rotate');
+
+const resetGameBtn = document.querySelector('#reset')
 
 
 tableELHum.addEventListener('click', handleData);
@@ -47,6 +49,8 @@ tableELHum.addEventListener('mouseout', unHighLight);
 tableELComp.addEventListener('click', handleData);
 
 rotateButton.addEventListener('click', rotateBtn);
+
+resetGameBtn.addEventListener('click', init)
 
 
 init()
@@ -74,6 +78,10 @@ winner = null;
 tableELHum.style.pointerEvents = 'auto';
 
 tableELComp.style.pointerEvents = 'none';
+
+// resetGameBtn.style.visibility = 'hidden';
+
+rotateButton.style.visibility = 'visible';
 
 renderMessage();
 
@@ -200,6 +208,9 @@ function renderMessage(){
             message.textContent = 'Miss';
         };
     };
+    if(it.shipIdx === 4){
+        message.textContent = `God Speed Admiral`
+    }
     if(winner === 'Computer Won'){
         message.textContent = 'Admiral you have been Defeated';
     };
