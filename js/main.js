@@ -235,6 +235,27 @@ function guard(){
     it.i = 0;
 };
 
+function rotateBtn() {
+    rotation === 1 ? rotation =  0 : rotation = 1;
+};
+
+function fire(){
+    if(computer.c[`${y}${x}`] === 'H' || computer.c[`${y}${x}`] === 'M')return
+
+    while(compfire()){
+        console.log('testing');
+    }
+
+    if(computer.c[`${y}${x}`] === 'M')return;
+    if(computer.b[y][x]){
+        computer.c[`${y}${x}`] = 'H';
+        computer.b[y][x] = 'H';
+        return;
+    }else{
+        (computer.c[`${y}${x}`] = 'M');
+    };
+};
+
 
 //Functions for Highlighting and Unhighlighting ships
 
@@ -266,29 +287,8 @@ function unHighLight(evt){
     };
 };
 
-function rotateBtn() {
-    rotation === 1 ? rotation =  0 : rotation = 1;
-};
-
-function fire(){
-    if(computer.c[`${y}${x}`] === 'H' || computer.c[`${y}${x}`] === 'M')return
-
-    while(compfire()){
-        console.log('testing');
-    }
-
-    if(computer.c[`${y}${x}`] === 'M')return;
-    if(computer.b[y][x]){
-        computer.c[`${y}${x}`] = 'H';
-        computer.b[y][x] = 'H';
-        return;
-    }else{
-        (computer.c[`${y}${x}`] = 'M');
-    };
-};
-
-
 //Computer Functions 
+
 function compPlace() { 
     let count = 0;
     while(count < 5){
@@ -353,6 +353,7 @@ function compfire() {
     return true;
 };
 
+//Functions to track win logic
 
 function humTrack() {
     let score = 17;
