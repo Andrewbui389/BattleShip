@@ -1,4 +1,7 @@
 # BattleShip
+
+Link to Game: https://andrewbui389.github.io/BattleShip/
+
 Constants: 
 A gameboard one for the computer and one for the player to keep track of where the ships are placed 
 an object containing the various ships and the length 
