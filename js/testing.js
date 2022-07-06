@@ -111,6 +111,7 @@ function handleData(evt){
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
     humTrack()
+    compTrack()
     it.i = 0;
     if(guard())return;
     else{
@@ -200,8 +201,11 @@ function renderMessage(){
         };
     };
     if(winner === 'Computer Won'){
-        message.textContent = 'Admiral you have been Defeated'
-    }
+        message.textContent = 'Admiral you have been Defeated';
+    };
+    if(winner === 'Human Won'){
+        message.textContent = 'The Enemy Has been defeated congratualations Admiral';
+    };
 };
 
 function guard(){
@@ -338,7 +342,7 @@ function compfire() {
 
 
 function humTrack() {
-    let score = 17
+    let score = 16
     for(i in player.c){
        if(player.c[i] === 'H'){
         score--
@@ -351,5 +355,14 @@ function humTrack() {
 }
 
 function compTrack() {
-
+    let score = 16
+    for(i in computer.c){
+       if(computer.c[i] === 'H'){
+        --score
+       }
+    }
+    if(score === 0){
+        winner = 'Human Won'
+        return
+    }
 }
