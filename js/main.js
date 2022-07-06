@@ -163,10 +163,10 @@ function render(){
 
 
 function renderSound(){
-    wavesSound.volume = 0;
+    wavesSound.volume = .4;
     wavesSound.play();
     if(it.shipIdx>4){
-        cannonFire.duration = 1;
+        cannonFire.duration = .1;
         cannonFire.play();
     };
 };
