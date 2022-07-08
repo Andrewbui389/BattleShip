@@ -4,7 +4,7 @@ Link to Game: https://andrewbui389.github.io/BattleShip/
 
 This is a game of battleship, which consists of the player competing against the computer for strategic superiority. The game is laid out on a 9x9 grid one for the player and one for the computer. The game starts with the player placing 5 ships, Carrier, Cruiser, Destroyer, Battleship, Submarine, and Patrol Boat. The computer also places the 5 ships however it is hidden to the player. Afterwards the player takes a shot at a spot on the grid to with the goal to hit the enemy's ships. It continues back and forth until one side has all their ships sunken.
 
-I made this game for the first unit project at General Assembly, the game consists of a computer that generates random coordinates to hit the players ships. It was a great logical challenge that has helped drived me to really understand the basis of MVC. Pushing me to approach a datacentric approach while creating my game and deploying via github pages.It had also taught me to take a responsive approach by developing it for mobile first and builting on top of that with CSS.
+I made this game for the first unit project at General Assembly, the game consists of a computer that generates random coordinates to hit the players ships. It was a great logical challenge that has helped drived me to really understand the basis of MVC. Pushing me to approach a datacentric approach while creating my game and deploying via github pages. It had also taught me to take a responsive approach by developing it for mobile first and building on top of that with CSS.
 
 ------------
 
