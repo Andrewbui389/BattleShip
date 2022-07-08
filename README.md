@@ -42,6 +42,7 @@ I made this game for the first unit project at General Assembly, the game consis
 - Mario Recinos (Instructional Associate at General Assembly)
 - Devlin Booth (Instructional Associate at General Assembly)
 - Stephanie Lee (Instructional Associate at General Assembly)
+- Kenneth Chang 
 - mdn Web Docs
 
 ------------
