@@ -55,7 +55,6 @@ resetGameBtn.addEventListener('click', init);
 
 document.querySelector('#sounds').addEventListener('click', soundBtn);
 
-
 init();
 
 function init() {
@@ -166,7 +165,6 @@ function render() {
     renderSound();
 };
 
-
 function renderSound() {
     if(sound === 1){
         wavesSound.volume = 1;
@@ -272,7 +270,6 @@ function soundBtn() {
     sound === 1 ? sound = 0 : sound = 1;
     renderSound();
 };
-
 
 //Functions for Highlighting and Unhighlighting ships
 
