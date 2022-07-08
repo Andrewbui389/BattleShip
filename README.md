@@ -24,8 +24,8 @@ I made this game for the first unit project at General Assembly, the game consis
 ------------
 
 ## Getting Started
-1.Setup the five ships that are prompted on load, Ships are allowed to be played horizontally or vertically<br>
-2.Player must then target grid coordinates on the computer's board to take out all enemy ships
+1. Setup the five ships that are prompted on load, Ships are allowed to be played horizontally or vertically<br>
+2. Player must then target grid coordinates on the computer's board to take out all enemy ships
 
 | Ships  | Length  |
 | ------------ | ------------ |
