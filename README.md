@@ -1,40 +1,23 @@
-# BattleShip
+
+
+# BattleShip 
 
 Link to Game: https://andrewbui389.github.io/BattleShip/
 
-Constants: 
-A gameboard one for the computer and one for the player to keep track of where the ships are placed 
-an object containing the various ships and the length 
+This is a game of battleship, which consists of the player competing against the computer for strategic superiority. The game is laid out on a 9x9 grid one for the player and one for the computer. The game starts with the player placing 5 ships, Carrier, Cruiser, Destroyer, Battleship, Submarine, and Patrol Boat. The computer also places the 5 ships however it is hidden to the player. Afterwards the player takes a shot at a spot on the grid to with the goal to hit the enemy's ships. It continues back and forth until one side has all their ships sunken.
 
-App State Variables: 
-The amount of ships that are left standing for the player and computer 
-The state of the game whether all of onesides ships has been sunked 
-The state of the players board and the computers board
-Whose turn is it to fire 
-the coordinates 
-Rotation status 
-winner 
+### Built With
+![JavaScript Icon](https://i.imgur.com/8dlunYx.png)
+------------
 
-Cached Elements: 
-The value of the tables and the data cells 
-message for the player to tell them if they won or lost the battle 
-rotation button 
+## Images 
+
+![Image of BattleShip Gameplay](https://i.imgur.com/RFY3Mjr.png)
+
+![Image of BattleShip Gameplay](https://i.imgur.com/561qjCn.png)
 
 
-Event Listeners: 
-listen for click to recieve coordinates for ship placement and to check phase to switch to attack mode
-event listener to check for whether the cursor is hovering or not 
-listen to the click on a table to check whether or not it was a hit
-replay button for when the game ends 
-
-Functions: 
-function to make the player and the computer each a board 
-function to place the ships on the given coordinates 
-function to take care of grid palcement and whether the grid spaces are within the boundaries 
-function to go through all five ships
-function to check if rotation should place ships vertically or horizontally 
-function for computer to choose random ships placements on grid 
-function to highLight when placing ships 
+------------
 
 
 
