@@ -74,6 +74,10 @@ td{
     background-color: lightgray;
 }
 
+button {
+    overflow: hidden;
+}
+
 
 @media only screen and (min-width: 800px){
     #rotate:hover{
@@ -166,5 +170,9 @@ td{
         border: 1px solid black;
         margin: 0;
         color: lightblue;
+    }
+
+    button {
+        overflow: hidden;
     }
 }

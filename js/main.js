@@ -4,23 +4,23 @@ const shipsId = [
                 {l:3, s:'s',sank:false,ship:'Cruiser',msgRead:false},
                 {l:3, s:'b',sank:false,ship:'Submarine',msgRead:false},
                 {l:2, s:'p',sank:false,ship:'Patrol Boat',msgRead:false}
-                ]
+                ];
 
-const wavesSound = new Audio('./Sounds/waves.mp3')
+const wavesSound = new Audio('./Sounds/waves.mp3');
 
-const cannonFire = new Audio('./Sounds/cannonEffect.mp3')
+const cannonFire = new Audio('./Sounds/cannonEffect.mp3');
 
-let player 
+let player; 
 
-let computer 
+let computer; 
 
-let x
+let x;
 
-let y
+let y;
 
-let sound 
+let sound; 
 
-let rotation
+let rotation;
 
 let winner;
 
@@ -28,17 +28,17 @@ let it;
 
 const tableELHum = document.querySelector("#player");
 
-const cellDataHum = [...tableELHum.querySelectorAll('td')];
+const cellDataHums = [...tableELHum.querySelectorAll('td')];
 
 const tableELComp = document.querySelector("#computer");
 
-const cellDataComp = [...tableELComp.querySelectorAll('td')];
+const cellDataComps = [...tableELComp.querySelectorAll('td')];
 
 const message = document.querySelector("h1");
 
 const rotateButton = document.querySelector('#rotate');
 
-const resetGameBtn = document.querySelector('#reset')
+const resetGameBtn = document.querySelector('#reset');
 
 
 tableELHum.addEventListener('click', handleData);
@@ -51,12 +51,12 @@ tableELComp.addEventListener('click', handleData);
 
 rotateButton.addEventListener('click', rotateBtn);
 
-resetGameBtn.addEventListener('click', init)
+resetGameBtn.addEventListener('click', init);
 
-document.querySelector('#sounds').addEventListener('click', soundBtn)
+document.querySelector('#sounds').addEventListener('click', soundBtn);
 
 
-init()
+init();
 
 function init() {
     
@@ -97,17 +97,17 @@ resetBoard();
 };
 
 function resetBoard() {
-    for(i of cellDataHum){
+    for(i of cellDataHums){
         i.style.backgroundColor = '#5199CC';
         i.style.color = '#5199CC';
     };
-    for(i of cellDataComp){
+    for(i of cellDataComps){
         i.style.backgroundColor = '#5199CC';
         i.style.color = '#5199CC';
     };
 };
 
-function makeDataBoard(){
+function makeDataBoard() {
     let board = []
     while(board.length<10){
         board.push([null,null,null,null,null,null,null,null,null,null]);
@@ -119,7 +119,7 @@ function makeDataBoard(){
     return data;
 };
 
-function handleData(evt){
+function handleData(evt) {
     if(winner !== null)return
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
@@ -147,19 +147,19 @@ function addData() {
     it.i = 0;
 };
 
-function mouseActions(){ 
+function mouseActions() { 
         tableELHum.style.pointerEvents = 'none';
         tableELComp.style.pointerEvents = 'auto';
         rotateButton.style.visibility = 'hidden';
 };
 
-function getCoors(int){
+function getCoors(int) {
     let newArr = int.split('');
     y = parseInt(newArr[0]);
     x = parseInt(newArr[1]);
 };
 
-function render(){
+function render() {
     renderHumanBoard();
     renderCompBoard();
     renderMessage();
@@ -167,7 +167,7 @@ function render(){
 };
 
 
-function renderSound(){
+function renderSound() {
     if(sound === 1){
         wavesSound.volume = 1;
         cannonFire.volume = .2;
@@ -185,8 +185,8 @@ function renderSound(){
     };
 };
 
-function renderHumanBoard(){
-    for(i of cellDataHum){
+function renderHumanBoard() {
+    for(i of cellDataHums) {
         if(player.c[i.textContent]){
             i.style.backgroundColor = '#4F5F63';
         };
@@ -199,8 +199,8 @@ function renderHumanBoard(){
     };
 };
 
-function renderCompBoard(){
-    for(i of cellDataComp){
+function renderCompBoard() {
+    for(i of cellDataComps) {
         if(computer.c[i.textContent] === 'H') {
             i.style.backgroundColor = 'red';
         };
@@ -210,30 +210,30 @@ function renderCompBoard(){
     };
 };
 
-function renderMessage(){
-    if(it.shipIdx < 4){
+function renderMessage() {
+    if(it.shipIdx < 4) {
         message.textContent = `Admiral Please Place ${shipsId[it.shipMsg].ship}`;
         it.shipMsg++;
     };
-    if(it.shipIdx > 4){
+    if(it.shipIdx > 4) {
         if(computer.c[`${y}${x}`] === 'H') {
             message.textContent = 'Hit';
         } else if(computer.c[`${y}${x}`] !== 'H') {
             message.textContent = 'Miss';
         };
     };
-    if(it.shipIdx === 4){
+    if(it.shipIdx === 4) {
         message.textContent = `God Speed Admiral`;
     };
-    if(winner === 'Computer Won'){
+    if(winner === 'Computer Won') {
         message.textContent = 'Admiral you have been Defeated';
     };
-    if(winner === 'Human Won'){
+    if(winner === 'Human Won') {
         message.textContent = 'The Enemy Has been defeated congratualations Admiral';
     };
 };
 
-function guard(){
+function guard() {
     if(i.shipIdx > 4)return; 
     let X = x;
     let Y = y;
@@ -251,10 +251,10 @@ function rotateBtn() {
     rotation === 1 ? rotation =  0 : rotation = 1;
 };
 
-function fire(){
+function fire() {
     if(computer.c[`${y}${x}`] === 'H' || computer.c[`${y}${x}`] === 'M')return
 
-    while(compfire()){
+    while(compfire()) {
         continue;
     }
 
@@ -270,13 +270,13 @@ function fire(){
 
 function soundBtn() {
     sound === 1 ? sound = 0 : sound = 1;
-    renderSound()
+    renderSound();
 };
 
 
 //Functions for Highlighting and Unhighlighting ships
 
-function highLight(evt){
+function highLight(evt) {
     it.i = 0;
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
@@ -284,7 +284,7 @@ function highLight(evt){
     let X = x;
     let Y = y;
     while(it.i < shipsId[it.shipIdx].l){
-        for(i of cellDataHum){
+        for(i of cellDataHums){
             if(i.textContent === `${Y}${X}` && i.style.backgroundColor !== '#4F5F63'){i.style.backgroundColor = 'lightgray'};
         };
         rotation === 1 ? X++ : Y++;
@@ -293,11 +293,11 @@ function highLight(evt){
     it.i = 0;
 };
 
-function unHighLight(evt){
+function unHighLight(evt) {
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
     if(guard())return;
-    for(i of cellDataHum){
+    for(i of cellDataHums){
         if(i.style.backgroundColor === 'lightgray'){
             i.style.backgroundColor = '#5199CC';
         };
@@ -374,12 +374,12 @@ function compfire() {
 
 function humTrack() {
     let score = 17;
-    for(i in player.c){
+    for(i in player.c) {
        if(player.c[i] === 'H'){
         --score;
        };
     };
-    if(score === 0){
+    if(score === 0) {
         resetGameBtn.style.visibility = 'visible';
         winner = 'Computer Won';
         return;
@@ -388,12 +388,12 @@ function humTrack() {
 
 function compTrack() {
     let score = 17;
-    for(i in computer.c){
+    for(i in computer.c) {
        if(computer.c[i] === 'H'){
         --score;
        };
     };
-    if(score === 0){
+    if(score === 0) {
         resetGameBtn.style.visibility = 'visible';
         winner = 'Human Won';
         return;
