@@ -8,7 +8,7 @@ This is a game of battleship, which consists of the player competing against the
 
 ### Built With
 [![JavaScript Icon](https://i.imgur.com/8dlunYx.png)](https://www.javascript.com/)
-[![HTML Icon](https://i.imgur.com/hNdJvWR.png)](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+[![HTML Icon](https://i.imgur.com/a28wdJt.png)](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
 ------------
 
 ## Images 
