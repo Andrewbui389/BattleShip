@@ -58,41 +58,25 @@ document.querySelector('#sounds').addEventListener('click', soundBtn);
 init();
 
 function init() {
-    
-player = makeDataBoard();
-
-computer = makeDataBoard();
-
-it = {
-        i: 0, 
-        shipIdx:0,
-        shipMsg: 0
-        };
-
-x = null;
-
-y = null;
-
-rotation = 1; 
-
-winner = null;
-
-sound = 1
-
-tableELHum.style.pointerEvents = 'auto';
-
-tableELComp.style.pointerEvents = 'none';
-
-resetGameBtn.style.visibility = 'hidden';
-
-rotateButton.style.visibility = 'visible';
-
-renderMessage();
-
-compPlace();
-
-resetBoard();
-
+    player = makeDataBoard();
+    computer = makeDataBoard();
+    it = {
+         i: 0, 
+         shipIdx:0,
+         shipMsg: 0
+         };
+    x = null;
+    y = null;
+    rotation = 1; 
+    winner = null;
+    sound = 1
+    tableELHum.style.pointerEvents = 'auto';
+    tableELComp.style.pointerEvents = 'none';
+    resetGameBtn.style.visibility = 'hidden';
+    rotateButton.style.visibility = 'visible';
+    renderMessage();
+    compPlace();
+    resetBoard();
 };
 
 function resetBoard() {
@@ -107,7 +91,7 @@ function resetBoard() {
 };
 
 function makeDataBoard() {
-    let board = []
+    let board = [];
     while(board.length<10){
         board.push([null,null,null,null,null,null,null,null,null,null]);
     };
@@ -119,11 +103,11 @@ function makeDataBoard() {
 };
 
 function handleData(evt) {
-    if(winner !== null)return
+    if(winner !== null)return;
     if(evt.target.tagName !== 'TD')return;
     getCoors(evt.target.textContent);
-    humTrack()
-    compTrack()
+    humTrack();
+    compTrack();
     it.i = 0;
     if(guard())return;
     else{
@@ -322,7 +306,7 @@ function randomLocation(int) {
     let Y = y;
     let randomRotation = Math.floor(Math.random() * 2);
     while(count<shipsId[int].l){
-        if(computer.b[Y][X])return true
+        if(computer.b[Y][X])return true;
         count++;
         randomRotation === 1 ? X++ : Y++;
     };

@@ -3,7 +3,6 @@
     font-family: 'Press Start 2P', cursive;
 }
 
-
 body{
     display: grid;
     grid-template-columns: 1fr;
@@ -77,7 +76,6 @@ td{
 button {
     overflow: hidden;
 }
-
 
 @media only screen and (min-width: 800px){
     #rotate:hover{
