@@ -50,4 +50,4 @@ I made this game for the first unit project at General Assembly, the game consis
 ## Future Features
 - Revisitng the UI and making it more modern 
 - Adding additional functionality that will display a message telling the player what ship they sank 
-- Allowing the player to imput name to be displayed on the messageboard
+- Allowing the player to input name to be displayed on the messageboard
